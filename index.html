@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UCITS ETF Overlap Tool</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Fonts for Apple-like typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <h1>ETF Overlap</h1>
+            <p>Compare UCITS ETFs with precision.</p>
+        </header>
+
+        <main>
+            <div id="search-section">
+                <!-- Search inputs will go here -->
+                <div class="search-container">
+                    <input type="text" id="etf1-input" placeholder="Search ETF 1 (e.g., VWCE)...">
+                    <div id="etf1-results" class="search-results hidden"></div>
+                </div>
+                <div class="vs-badge">VS</div>
+                <div class="search-container">
+                    <input type="text" id="etf2-input" placeholder="Search ETF 2 (e.g., SWDA)...">
+                    <div id="etf2-results" class="search-results hidden"></div>
+                </div>
+            </div>
+
+            <div id="results-section" class="hidden">
+                <!-- Overlap visualization and details will go here -->
+                <div class="overlap-visual">
+                    <div class="circle" id="circle1"></div>
+                    <div class="circle" id="circle2"></div>
+                    <div class="overlap-text">
+                        <span id="overlap-percentage">0%</span>
+                        <small>Overlap by Weight</small>
+                    </div>
+                </div>
+
+                <!-- New Financial Metrics Section -->
+                <div class="comparison-section">
+                    <h3>Key Metrics</h3>
+                    <div class="metrics-comparison-grid" id="key-metrics-grid">
+                        <!-- Dynamic content injected by JS -->
+                    </div>
+                </div>
+
+                <!-- Sector Drift Section (New) -->
+                <div class="comparison-section">
+                    <h3>Sector Drift</h3>
+                    <div class="breakdown-card">
+                        <div id="sector-drift-chart" class="drift-chart"></div>
+                    </div>
+                </div>
+
+                <!-- New Breakdown Sections -->
+                <div class="breakdown-container">
+                    <div class="breakdown-card">
+                        <h3>Sector Allocation</h3>
+                        <div id="sector-breakdown" class="breakdown-chart"></div>
+                    </div>
+                    <div class="breakdown-card">
+                        <h3>Country Allocation</h3>
+                        <div id="country-breakdown" class="breakdown-chart"></div>
+                    </div>
+                </div>
+
+                <div class="details-table">
+                    <h3>Top Overlapping Holdings</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Holding</th>
+                                <th id="th-etf1">ETF 1 Weight</th>
+                                <th id="th-etf2">ETF 2 Weight</th>
+                            </tr>
+                        </thead>
+                        <tbody id="holdings-body">
+                            <!-- Rows will be injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="data/etfs.js"></script> <!-- Loaded as a script for local file:// compatibility -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
